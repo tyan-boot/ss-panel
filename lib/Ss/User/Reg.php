@@ -23,13 +23,14 @@ class Reg {
         return $datas['0']['port'];
     }
 
-    function Reg($username,$email,$pass,$plan,$transfer,$invite_num,$ref_by){
+    function Reg($username,$email,$qq,$pass,$plan,$transfer,$invite_num,$ref_by){
 
         $sspass = \Ss\Etc\Comm::get_random_char(8);
 
         $this->db->insert($this->table,[
            "user_name" => $username,
             "email" => $email,
+            "qq" => $qq,
             "pass" => $pass,
             "passwd" =>  $sspass,
             "t" => '0',

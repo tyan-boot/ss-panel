@@ -2,6 +2,8 @@
 require_once '../lib/config.php';
 $email = $_POST['email'];
 $email = strtolower($email);
+$qq = $_POST['qq'];
+$qq = strtolower($qq);
 $passwd = $_POST['passwd'];
 $name = $_POST['name'];
 $repasswd = $_POST['repasswd'];
@@ -33,7 +35,7 @@ if(!$code->IsCodeOk()){
     $invite_num = rand($user_invite_min,$user_invite_max);
     //do reg
     $reg = new \Ss\User\Reg();
-    $reg->Reg($name,$email,$passwd,$plan,$transfer,$invite_num,$ref_by);
+    $reg->Reg($name,$email,$qq,$passwd,$plan,$transfer,$invite_num,$ref_by);
     $code->Del();
     $a['ok'] = '1';
     $a['msg'] = "注册成功";

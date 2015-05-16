@@ -8,13 +8,16 @@ class Ss {
     //
     public  $uid;
     public $db;
+    public $nowzero;
 
     function  __construct($uid=0){
         global $db;
         $this->uid = $uid;
         $this->db  = $db;
+        $this->nowzero = time();
+        $this->nowzero += 8*3600;
+        $this->nowzero -= $this->nowzero % 86400;
     }
-
     //user info array
     function get_user_info_array(){
         $datas = $this->db->select("user","*",[
@@ -72,8 +75,8 @@ class Ss {
 
     //check is able to check in
     function is_able_to_check_in(){
-        $now = time();
-        if( $now-$this->get_last_check_in_time() > 3600*22 ){
+        $now = $this->nowzero;
+        if( $now > ($this->get_last_check_in_time() + 8*3600) ){
             return 1;
         }else{
             return 0;

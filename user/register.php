@@ -52,6 +52,9 @@ require_once '../lib/config.php';
                 <input type="text" id="email" class="form-control" placeholder="邮箱"/>
                 <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
             </div>
+			<div class="form-group has-feedback">
+                <input type="text" id="qq" class="form-control" placeholder="QQ"/>
+            </div>
             <div class="form-group has-feedback">
                 <input type="password" id="passwd" class="form-control" placeholder="密码"/>
                 <span class="glyphicon glyphicon-lock form-control-feedback"></span>
@@ -105,6 +108,7 @@ require_once '../lib/config.php';
                 dataType:"json",
                 data:{
                     email: $("#email").val(),
+                    qq: $("#qq").val(),
                     name: $("#name").val(),
                     passwd: $("#passwd").val(),
                     repasswd: $("#repasswd").val(),
